@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#adb3b4",
+              "surface-tint": "#5f5e5e",
+              "on-secondary-container": "#4f5253",
+              "on-primary-fixed": "#403f3f",
+              "primary-dim": "#535252",
+              "surface-variant": "#dde4e5",
+              "on-primary": "#faf7f6",
+              "surface-container-lowest": "#ffffff",
+              "error": "#9f403d",
+              "inverse-on-surface": "#9c9d9d",
+              "surface-bright": "#f9f9f9",
+              "on-surface": "#2d3435",
+              "on-primary-container": "#525151",
+              "on-tertiary": "#f4faff",
+              "primary-fixed": "#e5e2e1",
+              "background": "#f9f9f9",
+              "tertiary": "#486272",
+              "on-secondary": "#f7f9fa",
+              "surface-dim": "#d4dbdd",
+              "on-surface-variant": "#5a6061",
+              "primary-fixed-dim": "#d7d4d3",
+              "surface-container-high": "#e4e9ea",
+              "tertiary-fixed": "#d0ecff",
+              "outline": "#757c7d",
+              "secondary": "#5c6060",
+              "on-tertiary-fixed-variant": "#486272",
+              "tertiary-dim": "#3c5666",
+              "tertiary-fixed-dim": "#c2def0",
+              "on-error-container": "#752121",
+              "inverse-surface": "#0c0f0f",
+              "secondary-fixed-dim": "#d2d5d5",
+              "primary": "#5f5e5e",
+              "error-dim": "#4e0309",
+              "tertiary-container": "#d0ecff",
+              "on-secondary-fixed": "#3c4040",
+              "on-background": "#2d3435",
+              "inverse-primary": "#ffffff",
+              "surface-container": "#ebeeef",
+              "secondary-dim": "#505454",
+              "on-primary-fixed-variant": "#5c5b5b",
+              "secondary-container": "#e1e3e3",
+              "primary-container": "#e5e2e1",
+              "surface": "#f9f9f9",
+              "surface-container-highest": "#dde4e5",
+              "error-container": "#fe8983",
+              "secondary-fixed": "#e1e3e3",
+              "on-secondary-fixed-variant": "#595c5d",
+              "on-error": "#fff7f6",
+              "surface-container-low": "#f2f4f4",
+              "on-tertiary-container": "#3e5868",
+              "on-tertiary-fixed": "#2c4655"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-200/15 dark:border-zinc-800/15">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-16">
+<div class="text-xl font-bold tracking-tighter text-zinc-900 dark:text-zinc-50 font-headline"><img alt="Lumina Archive Logo" class="h-8 w-auto invert dark:invert-0 grayscale transition-all duration-300" src="https://lh3.googleusercontent.com/aida/ADBb0ujtljFgZmNOQILoQzLtjgx_-Wi4-Pz1ymO6S0-Wx869YMNfTE9whJrOjXoeWnEBo_OzCWyVFAWLmm0D1ETOhOVSveDlU4xCH8ss7uYaYM2yEr7cbwXr1YrU7Q4n4dLdXMyrXpl5JPo6ZhUnnY9MVFciF9lsPhYr_JYmXsOHTRPikLnr4ZNrS5oTreKOsyGvmwQlM88Q7S3R_BW2LQmmL13qEtuuUsAPSCHwnDRfqCprIZ-M-HjDr-YXK6Jbk9uvdnUSvHjMaFriROA"/></div>
+<div class="hidden md:flex items-center gap-8 font-headline text-sm tracking-tight font-medium">
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors" href="#">Home</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors" href="#">Blog</a>
+<a class="text-zinc-900 dark:text-zinc-50 font-bold border-b-2 border-zinc-800 dark:border-zinc-200 pb-1" href="#">Projects</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors" href="#">Gallery</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:opacity-80 transition-opacity scale-95 duration-200 ease-in-out text-zinc-800 dark:text-zinc-200">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-20 max-w-7xl mx-auto px-6">
+<!-- Header Section: Engineered Asymmetry -->
+<header class="editorial-grid mb-24">
+<div class="col-span-12 lg:col-span-8">
+<p class="font-label text-xs tracking-widest uppercase text-outline mb-4">Archive Vol. 01</p>
+<h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-on-surface leading-none mb-8">
+                    Selected <span class="text-outline-variant">Engineering</span> Projects.
+                </h1>
+<p class="font-body text-lg text-on-surface-variant max-w-xl leading-relaxed">
+                    A collection of digital artifacts focusing on technical precision, structural integrity, and minimalist user interfaces. Each entry represents a unique challenge in the digital landscape.
+                </p>
+</div>
+</header>
+<!-- Projects Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Project Card 01: Large Featured -->
+<div class="md:col-span-2 group">
+<div class="relative overflow-hidden bg-surface-container-low border border-outline-variant/15 aspect-[16/9] mb-6">
+<img alt="Technical architectural diagram" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90" data-alt="Monochrome architectural drawing of a brutalist building with clean lines, high contrast shadows, and minimalist aesthetic on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH6sjVvxaH1Y9GyiNm87l8k9brwrmqfM70bQ6IgDYrbfMK0c6DrhwoGBYNkxx4It9_DYXKDLZAUvna-NMDIx5Au3dLPDU9qtnbiWX_12psisB5i2EKk-f2j6YCPRcwmXCUDPgcn9X_p4iHIiMvZF9CTYR1v-yD7-9abMSkxEZQmPIQWUx78IM21nUgMjFl-ZE1Ht_FxZUmKsZ5d210f40wSn_fuIOuAaBd3hdK8JRnlFA_5GhGpZ4uyG1t1K97HwVPtB8hmoWd7bwI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface/40 to-transparent"></div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-start gap-4">
+<div class="max-w-md">
+<div class="flex items-center gap-3 mb-2">
+<span class="font-label text-[10px] tracking-widest uppercase px-2 py-0.5 bg-surface-variant text-on-surface-variant">System Design</span>
+<span class="font-label text-[10px] tracking-widest uppercase text-outline">2024</span>
+</div>
+<h3 class="font-headline text-2xl font-bold tracking-tight mb-2">Neural Kernel Architecture</h3>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed mb-4">
+                            Development of a low-latency processing engine for distributed neural networks. Focused on memory efficiency and asynchronous task orchestration.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 justify-end">
+<span class="font-label text-[10px] border border-outline-variant/30 px-2 py-1 text-on-surface-variant">Rust</span>
+<span class="font-label text-[10px] border border-outline-variant/30 px-2 py-1 text-on-surface-variant">WebAssembly</span>
+<span class="font-label text-[10px] border border-outline-variant/30 px-2 py-1 text-on-surface-variant">gRPC</span>
+</div>
+</div>
+</div>
+<!-- Project Card 02 -->
+<div class="group">
+<div class="relative overflow-hidden bg-surface-container-low border border-outline-variant/15 aspect-square mb-6">
+<img alt="Geometric light patterns" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90" data-alt="Abstract white 3D geometric shapes intertwining with sharp edges and soft grey shadows, editorial studio lighting style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATyVCXJatcAVurOcQMwm18JwS99u1PjTaUlnbpS27XzY1l2m4IwH8EZp7IHBGUcgX00SNm0_n5dcohjSa4Xu_Cgc03kKl8RbAPsbdIOkggLnaq9ysjHuDycHq6YARj3WtJtQeUIqEP7-pCC4SqLol_kFAC0F3ETbbHDmEvAd_cOkzMwBZ94xZGu6eD5WhRU7pdf4wHagPYppGacMK743Pgk7xfVv1x2cgbmHE2u3Jmqwb8FcUleXOy_Vt26k36yoWzD5Qae5SUPuSr"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-3 mb-2">
+<span class="font-label text-[10px] tracking-widest uppercase px-2 py-0.5 bg-surface-variant text-on-surface-variant">Interface</span>
+</div>
+<h3 class="font-headline text-xl font-bold tracking-tight mb-2">Void UI Kit</h3>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed mb-4">
+                        A high-end design system based on optical balance and subtractive design principles for data-heavy applications.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="font-label text-[10px] border border-outline-variant/30 px-2 py-1 text-on-surface-variant">TypeScript</span>
+<span class="font-label text-[10px] border border-outline-variant/30 px-2 py-1 text-on-surface-variant">Tailwind</span>
+</div>
+</div>
+</div>
+<!-- Project Card 03 -->
+<div class="group">
+<div class="relative overflow-hidden bg-surface-container-low border border-outline-variant/15 aspect-square mb-6">
+<img alt="Abstract flowing liquid" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90" data-alt="Minimalist abstract render of flowing silver liquid metal with reflective surfaces and clean studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa-texpMilhXHJ7zV8FeGoJESa0PNaNIbN2OdCPnssGyeB4GFJpe5V-C25YMsMuAGXMU27agahKHxCV7GJRQmrvPdl-2oFMp6PHWhX4P5lO1eBWbqR8oPfIalIME7ygNGcd8j7UFcn4Cz7Wu1SgyYquXR0BGp5PyOS5OxyVjjyJToKjQ__fnV0CG54FeVahxR7S7y508wJQOCvNl2TRYb_T4ErJcLBTvrkyzU7JSa9rkXxfiD78O7fOWoJSpO_Gf69KFRKEt_taKz_"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-3 mb-2">
+<span class="font-label text-[10px] tracking-widest uppercase px-2 py-0.5 bg-surface-variant text-on-surface-variant">Cryptography</span>
+</div>
+<h3 class="font-headline text-xl font-bold tracking-tight mb-2">Cipher Stream</h3>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed mb-4">
+                        End-to-end encrypted messaging protocol utilizing post-quantum cryptographic standards and zero-knowledge proofs.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="font-label text-[10px] border border-outline-variant/30 px-2 py-1 text-on-surface-variant">Go</span>
+<span class="font-label text-[10px] border border-outline-variant/30 px-2 py-1 text-on-surface-variant">Protobuf</span>
+</div>
+</div>
+</div>
+<!-- Project Card 04: Wide Content -->
+<div class="md:col-span-2 group">
+<div class="relative overflow-hidden bg-surface-container-low border border-outline-variant/15 aspect-[21/9] mb-6">
+<div class="absolute inset-0 flex items-center justify-center">
+<img alt="Matrix of code" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80" data-alt="Close-up of a high-resolution circuit board with complex copper traces and silver components on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxWmQNVJfnp93nnH5T27AUQuCoLq5TW-JW23meTX-CRYwwEmrOdc7WA8GrJBTe1Y75DrY_aX_WAWOaLPrCv5eVIkQHaPN8owpVPetaM9UnUICYAXSYUn9FZdROLblTFkwBfMrbTnDI7t8qrvXDYOw8wtRVRSJt4hB3Hwi96EyHBnlzu6O9FvOrRaza698A0i0DYuDv-gF_sLjGRe4pIJChKz391gOhxgC7Q3mc-kDUAayzKojg3mtAVGq7Y-Xkrc1jEZ_F5T9qS0rF"/>
+</div>
+<div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-start gap-4">
+<div class="max-w-xl">
+<div class="flex items-center gap-3 mb-2">
+<span class="font-label text-[10px] tracking-widest uppercase px-2 py-0.5 bg-surface-variant text-on-surface-variant">Infrastructure</span>
+</div>
+<h3 class="font-headline text-2xl font-bold tracking-tight mb-2">Atmos Cloud Mesh</h3>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed">
+                            Global service mesh for multi-region cloud deployments. Implements intelligent traffic routing and automated failure recovery with sub-millisecond latency overhead.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 md:mt-2">
+<span class="font-label text-[10px] border border-outline-variant/30 px-2 py-1 text-on-surface-variant">Kubernetes</span>
+<span class="font-label text-[10px] border border-outline-variant/30 px-2 py-1 text-on-surface-variant">Istio</span>
+<span class="font-label text-[10px] border border-outline-variant/30 px-2 py-1 text-on-surface-variant">AWS</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Technical Specification Footer for Project Section -->
+<section class="mt-32 pt-16 border-t border-outline-variant/10">
+<div class="editorial-grid">
+<div class="col-span-12 md:col-span-4">
+<h4 class="font-headline text-sm font-bold uppercase tracking-widest mb-6">Methodology</h4>
+<ul class="space-y-4 font-body text-xs text-on-surface-variant leading-relaxed">
+<li>01 / Performance-first development</li>
+<li>02 / Modular component architecture</li>
+<li>03 / Strict type safety &amp; validation</li>
+<li>04 / Accessibility-driven design</li>
+</ul>
+</div>
+<div class="col-span-12 md:col-span-8">
+<h4 class="font-headline text-sm font-bold uppercase tracking-widest mb-6">Current Focus</h4>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed mb-8">
+                        Investigating the intersection of deterministic rendering and generative layout engines. Currently exploring how editorial design principles can be algorithmically applied to dynamic data sets without sacrificing aesthetic integrity.
+                    </p>
+<a class="inline-flex items-center gap-2 group" href="#">
+<span class="font-label text-xs uppercase tracking-widest font-bold text-primary">View Full Documentation</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 mt-20 bg-zinc-50 dark:bg-zinc-900/50">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 gap-6">
+<div class="text-lg font-black text-zinc-900 dark:text-zinc-100 font-headline uppercase tracking-tighter">EC Digital Archivist</div>
+<div class="flex gap-8 font-['Inter'] text-xs tracking-widest uppercase">
+<a class="text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all" href="#">GitHub</a>
+<a class="text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all" href="#">LinkedIn</a>
+<a class="text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all" href="#">Twitter</a>
+<a class="text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all" href="#">Email</a>
+</div>
+<div class="font-['Inter'] text-xs tracking-widest uppercase text-zinc-600 dark:text-zinc-400">
+                © 2024 EC Digital Archivist
+            </div>
+</div>
+</footer>
+</body></html>

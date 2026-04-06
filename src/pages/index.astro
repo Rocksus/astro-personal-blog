@@ -1,31 +1,68 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>👋 Hello, You!</h1>
-			<p>
-				Welcome to my blog. This homepage is in WIP.
-			</p>
-			<!-- <p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul> -->
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout title="Home">
+  <main class="pt-32 pb-20 max-w-7xl mx-auto px-8">
+    <section class="max-w-7xl mx-auto mb-32 md:mb-64">
+      <div class="editorial-grid">
+        <div class="col-span-12 lg:col-span-10">
+          <span
+            class="font-label uppercase tracking-[0.2em] text-on-surface-variant dark:text-zinc-400 text-[0.7rem] font-medium mb-6 block"
+            >Ray's Blog</span
+          >
+          <h1
+            class="font-headline text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9] text-on-surface dark:text-zinc-50 mb-12"
+          >
+            Hello 👋
+          </h1>
+          <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-12 md:col-span-7 lg:col-span-6">
+              <p
+                class="text-lg md:text-xl text-on-surface-variant dark:text-zinc-400 font-body leading-relaxed mb-12"
+              >
+                I'm a software engineer who loves tinkering with things and take pretty pictures.
+              </p>
+              <div class="flex items-center gap-8">
+                <a
+                  class="px-8 py-4 bg-primary dark:bg-zinc-100 text-on-primary dark:text-zinc-900 font-label text-sm uppercase tracking-widest font-semibold hover:opacity-90 transition-all rounded-sm shadow-sm"
+                  href={`mailto:${import.meta.env.CONTACT_EMAIL}`}
+                >
+                  Get in touch
+                </a>
+                <a
+                  class="font-label text-xs uppercase tracking-[0.15em] font-bold border-b-2 border-outline-variant/30 dark:border-zinc-700 pb-1 hover:border-primary transition-all dark:text-zinc-300"
+                  href="/projects"
+                >
+                  View Projects
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto">
+      <div
+        class="bg-surface-container dark:bg-zinc-900/30 p-12 md:p-24 flex flex-col items-center text-center"
+      >
+        <span
+          class="font-label font-medium text-primary dark:text-zinc-500 mb-8 tracking-[0.3em] uppercase text-xs"
+          >Available for selective collaborations</span
+        >
+        <h2
+          class="font-headline text-4xl md:text-6xl font-bold tracking-tighter mb-12 dark:text-zinc-50"
+        >
+          Start a conversation
+        </h2>
+        <a
+          class="font-headline text-xl md:text-3xl text-on-surface-variant dark:text-zinc-400 hover:text-primary dark:hover:text-zinc-100 transition-colors underline underline-offset-8 decoration-outline-variant/30 hover:decoration-primary"
+          href={`mailto:${import.meta.env.CONTACT_EMAIL}`}
+        >
+          {import.meta.env.CONTACT_EMAIL}
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

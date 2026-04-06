@@ -1,111 +1,102 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+const posts = await getCollection("blog");
+const sortedPosts = posts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.slug}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout title="Technical Writing">
+  <main class="pt-32 pb-20 max-w-7xl mx-auto px-6">
+    <header class="editorial-grid mb-24">
+      <div class="col-span-12 lg:col-span-8">
+        <p
+          class="font-label text-xs tracking-widest uppercase text-outline dark:text-zinc-500 mb-4"
+        >
+          Writing
+        </p>
+        <h1
+          class="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-on-surface dark:text-zinc-50 leading-none mb-8"
+        >
+          Technical <span class="text-outline-variant dark:text-zinc-600">Essays</span> &amp; Notes.
+        </h1>
+        <p
+          class="font-body text-lg text-on-surface-variant dark:text-zinc-400 max-w-xl leading-relaxed"
+        >
+          Thoughts on software architecture, design systems, and the
+          intersection of engineering and editorial design.
+        </p>
+      </div>
+    </header>
+
+    <section class="max-w-7xl mx-auto mb-40">
+      <div
+        class="flex justify-between items-end mb-12 border-b border-outline-variant/10 dark:border-zinc-800 pb-6"
+      >
+        <h2 class="font-headline text-3xl font-light tracking-tight dark:text-zinc-100">
+          Recent Artifacts
+        </h2>
+        <span
+          class="font-label font-medium text-outline dark:text-zinc-500 text-sm tracking-widest uppercase"
+          >Sorted by Date</span
+        >
+      </div>
+
+      <div class="space-y-4">
+        {
+          sortedPosts.map((post, index) => (
+            <a
+              href={`/blog/${post.slug}`}
+              class="grid grid-cols-4 md:grid-cols-12 items-center py-6 px-4 hover:bg-surface-container-low dark:hover:bg-zinc-900/50 transition-colors group cursor-pointer border-b border-outline-variant/5 dark:border-zinc-800/50 gap-4"
+            >
+              <span class="col-span-1 md:col-span-2 font-label text-[0.65rem] text-outline dark:text-zinc-500 tracking-widest uppercase">
+                {post.data.pubDate.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })}
+              </span>
+              <div class="col-span-1 md:col-span-2 aspect-[3/2] overflow-hidden bg-surface-variant dark:bg-zinc-800 border border-outline-variant/15 dark:border-zinc-700/50 hidden sm:block">
+                {post.data.heroImage ? (
+                  <img
+                    src={post.data.heroImage}
+                    alt={post.data.title}
+                    class="w-full h-full object-cover opacity-80 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                  />
+                ) : (
+                  <div class="w-full h-full flex items-center justify-center text-outline-variant dark:text-zinc-600">
+                    <span class="material-symbols-outlined text-[16px]">
+                      image
+                    </span>
+                  </div>
+                )}
+              </div>
+              <div class="col-span-2 md:col-span-4">
+                <span class="font-headline text-lg group-hover:text-primary dark:group-hover:text-zinc-300 transition-colors block text-on-surface dark:text-zinc-100 leading-tight">
+                  {post.data.title}
+                </span>
+              </div>
+              <span class="hidden md:block md:col-span-3 font-label text-xs text-on-surface-variant dark:text-zinc-400 uppercase tracking-widest truncate">
+                {post.data.tags.slice(0, 3).join(", ")}
+              </span>
+              <div class="hidden md:flex md:col-span-1 justify-end">
+                <span class="material-symbols-outlined text-outline dark:text-zinc-500 group-hover:text-primary dark:group-hover:text-zinc-300 transition-colors">
+                  arrow_forward
+                </span>
+              </div>
+            </a>
+          ))
+        }
+        {
+          sortedPosts.length === 0 && (
+            <div class="py-12 text-center text-on-surface-variant font-body">
+              No articles published yet. Check back soon.
+            </div>
+          )
+        }
+      </div>
+    </section>
+  </main>
+</BaseLayout>

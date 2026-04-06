@@ -1,0 +1,25 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+---
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-200/15 dark:border-zinc-800/15">
+    <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-6 h-auto md:h-16 py-4 md:py-0 gap-4 md:gap-0">
+        <div class="text-xl font-bold tracking-tighter text-zinc-900 dark:text-zinc-50 font-headline flex items-center justify-between w-full md:w-auto">
+            <a href="/" class="flex items-center">
+                <img alt="Ray's Blog Logo" class="h-8 w-auto block dark:hidden transition-all duration-300" src="/logo-black.png" />
+                <img alt="Ray's Blog Logo" class="h-8 w-auto hidden dark:block transition-all duration-300" src="/logo-white.png" />
+            </a>
+            <div class="md:hidden">
+              <ThemeToggle />
+            </div>
+        </div>
+        <div class="flex items-center gap-6 font-headline text-sm tracking-tight font-medium w-full md:w-auto justify-center md:justify-end">
+            <a class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors border-b-2 border-transparent hover:border-zinc-800 dark:hover:border-zinc-200 pb-1" href="/">Home</a>
+            <a class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors border-b-2 border-transparent hover:border-zinc-800 dark:hover:border-zinc-200 pb-1" href="/blog">Blog</a>
+            <a class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors border-b-2 border-transparent hover:border-zinc-800 dark:hover:border-zinc-200 pb-1" href="/projects">Projects</a>
+            <a class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors border-b-2 border-transparent hover:border-zinc-800 dark:hover:border-zinc-200 pb-1" href="/gallery">Gallery</a>
+        </div>
+        <div class="hidden md:flex items-center gap-4">
+            <ThemeToggle />
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline-variant": "#adb3b4",
+                        "surface-tint": "#5f5e5e",
+                        "on-secondary-container": "#4f5253",
+                        "on-primary-fixed": "#403f3f",
+                        "primary-dim": "#535252",
+                        "surface-variant": "#dde4e5",
+                        "on-primary": "#faf7f6",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#9f403d",
+                        "inverse-on-surface": "#9c9d9d",
+                        "surface-bright": "#f9f9f9",
+                        "on-surface": "#2d3435",
+                        "on-primary-container": "#525151",
+                        "on-tertiary": "#f4faff",
+                        "primary-fixed": "#e5e2e1",
+                        "background": "#f9f9f9",
+                        "tertiary": "#486272",
+                        "on-secondary": "#f7f9fa",
+                        "surface-dim": "#d4dbdd",
+                        "on-surface-variant": "#5a6061",
+                        "primary-fixed-dim": "#d7d4d3",
+                        "surface-container-high": "#e4e9ea",
+                        "tertiary-fixed": "#d0ecff",
+                        "outline": "#757c7d",
+                        "secondary": "#5c6060",
+                        "on-tertiary-fixed-variant": "#486272",
+                        "tertiary-dim": "#3c5666",
+                        "tertiary-fixed-dim": "#c2def0",
+                        "on-error-container": "#752121",
+                        "inverse-surface": "#0c0f0f",
+                        "secondary-fixed-dim": "#d2d5d5",
+                        "primary": "#5f5e5e",
+                        "error-dim": "#4e0309",
+                        "tertiary-container": "#d0ecff",
+                        "on-secondary-fixed": "#3c4040",
+                        "on-background": "#2d3435",
+                        "inverse-primary": "#ffffff",
+                        "surface-container": "#ebeeef",
+                        "secondary-dim": "#505454",
+                        "on-primary-fixed-variant": "#5c5b5b",
+                        "secondary-container": "#e1e3e3",
+                        "primary-container": "#e5e2e1",
+                        "surface": "#f9f9f9",
+                        "surface-container-highest": "#dde4e5",
+                        "error-container": "#fe8983",
+                        "secondary-fixed": "#e1e3e3",
+                        "on-secondary-fixed-variant": "#595c5d",
+                        "on-error": "#fff7f6",
+                        "surface-container-low": "#f2f4f4",
+                        "on-tertiary-container": "#3e5868",
+                        "on-tertiary-fixed": "#2c4655"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        .asymmetric-item-lg { grid-column: span 8; }
+        .asymmetric-item-sm { grid-column: span 4; }
+        .asymmetric-item-md { grid-column: span 6; }
+        
+        @media (max-width: 768px) {
+            .asymmetric-item-lg, .asymmetric-item-sm, .asymmetric-item-md { grid-column: span 12; }
+        }
+
+        .editorial-shadow {
+            box-shadow: 0 8px 32px -4px rgba(45, 52, 53, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#f9f9f9]/80 dark:bg-[#0A0A0A]/80 backdrop-blur-xl border-b border-[#adb3b4]/15 dark:border-[#faf7f6]/10 shadow-[0_8px_32px_0_rgba(45,52,53,0.04)]">
+<div class="flex justify-between items-center px-6 py-4 max-w-[1440px] mx-auto w-full">
+<img alt="Lumina Archive Logo" class="h-8 w-auto invert dark:invert-0 grayscale transition-all duration-300" src="https://lh3.googleusercontent.com/aida/ADBb0ujtljFgZmNOQILoQzLtjgx_-Wi4-Pz1ymO6S0-Wx869YMNfTE9whJrOjXoeWnEBo_OzCWyVFAWLmm0D1ETOhOVSveDlU4xCH8ss7uYaYM2yEr7cbwXr1YrU7Q4n4dLdXMyrXpl5JPo6ZhUnnY9MVFciF9lsPhYr_JYmXsOHTRPikLnr4ZNrS5oTreKOsyGvmwQlM88Q7S3R_BW2LQmmL13qEtuuUsAPSCHwnDRfqCprIZ-M-HjDr-YXK6Jbk9uvdnUSvHjMaFriROA"/>
+<div class="hidden md:flex items-center space-x-8 font-headline text-sm tracking-tight font-medium"><a class="text-[#5f5e5e]/70 dark:text-[#faf7f6]/70 hover:text-[#0A0A0A] dark:hover:text-white transition-colors font-['Space_Grotesk'] tracking-tight antialiased text-sm" href="#">Archive</a><a class="text-[#5f5e5e]/70 dark:text-[#faf7f6]/70 hover:text-[#0A0A0A] dark:hover:text-white transition-colors font-['Space_Grotesk'] tracking-tight antialiased text-sm" href="#">Essays</a><a class="text-[#5f5e5e]/70 dark:text-[#faf7f6]/70 hover:text-[#0A0A0A] dark:hover:text-white transition-colors font-['Space_Grotesk'] tracking-tight antialiased text-sm" href="#">Studio</a><a class="text-[#0A0A0A] dark:text-white font-bold border-b-2 border-[#5f5e5e] pb-1 font-['Space_Grotesk'] tracking-tight antialiased text-sm" href="#">Index</a></div>
+<div class="flex items-center gap-4"><button class="p-2 text-[#5f5e5e] dark:text-[#faf7f6] hover:opacity-80 transition-opacity duration-200 active:scale-[0.98]"><span class="material-symbols-outlined">menu</span></button></div>
+</div>
+</nav>
+<main class="pt-32 pb-20 max-w-7xl mx-auto px-6">
+<!-- Hero Header -->
+<header class="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div class="max-w-2xl">
+<p class="font-label text-xs tracking-widest uppercase text-outline mb-4">Visual Archives — 001</p>
+<h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-on-surface leading-none mb-6">
+                    A Study in <span class="text-outline-variant font-light italic">Minimalism</span>
+</h1>
+<p class="text-lg text-on-surface-variant leading-relaxed max-w-xl">
+                    A curated collection of architectural silhouettes, technical intersections, and the silent spaces between engineering and art.
+                </p>
+</div>
+<div class="flex gap-4 font-label text-[10px] tracking-widest uppercase">
+<span class="px-3 py-1 bg-surface-container-low text-on-surface-variant">Filter by Date</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface font-bold">Show All</span>
+</div>
+</header>
+<!-- Asymmetric Gallery Grid -->
+<div class="gallery-grid">
+<!-- Item 1: Large Feature -->
+<div class="asymmetric-item-lg group cursor-crosshair">
+<div class="relative overflow-hidden aspect-[16/9] bg-surface-container mb-4">
+<img alt="" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out" data-alt="Modern minimalist skyscraper facade with sharp geometric shadows and high contrast monochrome lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzbefor9pjE730jnGifJ3nMDZ-qZ-e3p3ubOe1d7_BdRJniSXiA5-y5Hp8NApvKGuYS3DtcLGaqFuecbuicGoc7wNukid4WLw03wsCWH4Y2mEFBEGEc7IRQfk8QnvU2Xt41J5rgs29h2aRABzwUgw3M9Z6xXSn9rU0j2VxPPFZsj7FDjCQ4R5I0pXm5kPrzeIQt5SrOwERuhUzs_sikzb4WJJxgYBqcdRmIvRGk2A3LteoR0ILH-UvDkWrt9o_r8DLfvHjVLfpkYRU"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-bold text-lg tracking-tight">Structural Intent</h3>
+<p class="font-body text-sm text-on-surface-variant">Brutalist Geometry, London</p>
+</div>
+<span class="font-label text-[10px] text-outline pt-1">2024 / 01</span>
+</div>
+</div>
+<!-- Item 2: Small Offset -->
+<div class="asymmetric-item-sm mt-12 group cursor-crosshair">
+<div class="relative overflow-hidden aspect-[3/4] bg-surface-container mb-4">
+<img alt="" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out" data-alt="Minimalist concrete staircase detail with dramatic light beam hitting the edge of a step" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFLvo1LpK2Eq3o6HOOBFkmiTJ3JLa0em_SStomR1CpDPTjlrI86k0MIm8Cp5s8L59OIPvb-dgyMyDDTwUF9zw9IpRbJ2iDT1avKMTKTT5j-CCXmv2aN8m-o4yiY93nbYKJRo5zWSduBrsZJIY05oszMzfoKuVBkADi4Oieieat3xDlm_ECilNCkfuBuOHl0jHqgFgREOTTPtbptIHTVIs-0YraNI7rdMnQMSgJ-GqjC7vXwBgq91wvSnME7u8R2U5C4kytMEvflnrT"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-bold text-lg tracking-tight">The Void</h3>
+<p class="font-body text-sm text-on-surface-variant">Light Study</p>
+</div>
+<span class="font-label text-[10px] text-outline pt-1">2024 / 02</span>
+</div>
+</div>
+<!-- Item 3: Wide Layout -->
+<div class="asymmetric-item-md group cursor-crosshair">
+<div class="relative overflow-hidden aspect-square bg-surface-container mb-4">
+<img alt="" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out" data-alt="Close up of mechanical watch movement with intricate gears and brass components on deep shadow background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoso2B43zen_J9V63nQMwd7pR75iPfiD-LGU9W7swVW6ocR30M_eBnfH-95Wm7j7LZ6bZg2SeDODMmTL6ga0OzgTnfgfE3vjSU0WCr3T2vfSS1Umf7yfExWLmZRpyoK5BZssa1T9CDmZ4-_PkHf2DFeOMXybGW97CI7L_zlmdTacxs6xknFXBzxEWjZZc_q5ckn7HIR3YVbLGPTN5dNK9HpMH6X_3Me5O_QLyvvluLy7Ghhvn-TBl6CKrxEKIq0qqWUodsA52UI7Sn"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-bold text-lg tracking-tight">Precision Logic</h3>
+<p class="font-body text-sm text-on-surface-variant">Mechanical Macro</p>
+</div>
+<span class="font-label text-[10px] text-outline pt-1">2024 / 03</span>
+</div>
+</div>
+<!-- Item 4: Wide Layout -->
+<div class="asymmetric-item-md -mt-24 group cursor-crosshair">
+<div class="relative overflow-hidden aspect-[4/5] bg-surface-container mb-4">
+<img alt="" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out" data-alt="Symmetric view of glass office building reflecting the sky with thin white structural beams" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdSrc_YD1nfexlHMpUyZb_Xeg21V8qxZ8u7s8U9hin_rGOOE9iyhedJBoFFPb3cW9kCFxXS4gdG3KHG6VQ5Hcj1nObvI9pHtWA33LeeC-dII_AyJgt4pVr3i3T4CTrzutbRDy8ALIZV2z31P8-ci4mlFafXS9PL-tidBW9diFxACafoge6UJZmTc_Ui9BkElbA6isjcnCbNwURitT4Oed-kRIzJHpxR9S9DoMElzqCogW8sgT7n2p1SC8R6I19T226Cw0ZAMPH5I7e"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-bold text-lg tracking-tight">Glass Grid</h3>
+<p class="font-body text-sm text-on-surface-variant">Corporate Transparency</p>
+</div>
+<span class="font-label text-[10px] text-outline pt-1">2024 / 04</span>
+</div>
+</div>
+<!-- Item 5: Full Spacing Row -->
+<div class="col-span-12 my-24 border-t border-outline-variant/15 pt-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="flex flex-col gap-4">
+<span class="font-label text-[10px] text-primary tracking-[0.2em] font-bold">CURATORIAL NOTE</span>
+<p class="text-on-surface-variant text-sm leading-relaxed">The archive prioritizes the "Silent Vector"—images where the absence of human subjects highlights the engineering intent behind the space.</p>
+</div>
+<div class="col-span-2">
+<div class="relative overflow-hidden h-64 bg-surface-container-low group">
+<img alt="" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 grayscale transition-all duration-1000" data-alt="Long exposure of modern factory ventilation pipes against a clear indigo sky at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjWYnsP3mt6bRX3GKL0Rs_7v_iQ8mYZxf-nAldEKNJr8HTZ4OyuviAydctCzOKLRFweUrO2vdlkJ9eUbUhBhb9ryb-IwSBEDtyCJK_7FT8Ky4W9t4hsiBcz15yhB-RDFecJMmhYLdcRp2LA6bV9RDkaJY_nHvujTR_eclKzDYIMZX2HMFekmmImJwaFWtk62J1hBW1f1J6v5sxtBPxRb1dbDH0Wu5hZFExor8XNk_2mygjA_vsQoRW4eRUoj1tR689xZADpuimUppp"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="font-headline text-4xl font-extrabold text-on-surface tracking-widest opacity-20">SYSTEMS</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 6: Small Vertical -->
+<div class="asymmetric-item-sm group cursor-crosshair">
+<div class="relative overflow-hidden aspect-[2/3] bg-surface-container mb-4">
+<img alt="" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out" data-alt="Interior of a white minimalist library with circular bookshelves and soft ambient lighting from above" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn4j6xF86IBIJKS6wuKF8LgaC9kBDtYqe5AxFzG02iHXY32tpHMP_FoBCT8PnqvDFVXIoIn-S5aiXUAg2jSv-IXyNFhLSkvc-BDQWA_dij_25LsLzzm_ymqmlBUEW8-a6bI2wBBlxk5_DToc7jFWdR7GA11WYZz9io6CTud0MW0peh6yS6CjXAz0xNEMQRykJ12tAs72KZQcp4LQXnD-WVqfqUOsYz3QunG6viQZ5UgH4xvfFsfQYv-YLysovmWFJNvHxrk_fP-6sB"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-bold text-lg tracking-tight">The Library</h3>
+<p class="font-body text-sm text-on-surface-variant">Knowledge Geometry</p>
+</div>
+<span class="font-label text-[10px] text-outline pt-1">2024 / 05</span>
+</div>
+</div>
+<!-- Item 7: Large Horizontal -->
+<div class="asymmetric-item-lg mt-12 group cursor-crosshair">
+<div class="relative overflow-hidden aspect-video bg-surface-container mb-4">
+<img alt="" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out" data-alt="Top-down view of a minimalist white desk with a mechanical keyboard and a single architectural drawing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0PNpqNidJJVRqLQGPDBgb55ZgLaXypN9xIf64LzyNematF4KksyxjzJn4wNuVORkiQTZGU3ETRtPrUpQ40mS9qa2dCZNtBAh6y6K-_HOcGchfiqQ5TTremWx8v5-O9yi2hZ2n3TC05Lrt4Ua2GcLgYafszJx7yyN2F70cmSpkiuj9KGesnIHR_OVJbDHKh3PvuOc_Y_tGG_FrvsvaIWHp7ba3YwOKjxUy5SQ05gHekt2grrdK_Cnc4GFGnAiVGEj80lElXXEsUQFa"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-bold text-lg tracking-tight">Workspace 001</h3>
+<p class="font-body text-sm text-on-surface-variant">Technical Interface</p>
+</div>
+<span class="font-label text-[10px] text-outline pt-1">2024 / 06</span>
+</div>
+</div>
+</div>
+<!-- Pagination / Load More -->
+<div class="mt-32 text-center">
+<button class="font-label text-xs tracking-widest uppercase border border-outline-variant/30 px-12 py-4 hover:bg-on-surface hover:text-surface transition-all duration-300">
+                Access Deep Archives
+            </button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 mt-20 bg-zinc-50 dark:bg-zinc-900/50">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 gap-6">
+<div class="text-lg font-black text-zinc-900 dark:text-zinc-100 font-headline">
+                EC Digital Archivist
+            </div>
+<div class="flex gap-8 font-label text-xs tracking-widest uppercase text-zinc-600 dark:text-zinc-400">
+<a class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-all" href="#">GitHub</a>
+<a class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-all" href="#">LinkedIn</a>
+<a class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-all" href="#">Twitter</a>
+<a class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-all" href="#">Email</a>
+</div>
+<div class="text-zinc-500 dark:text-zinc-500 font-label text-[10px] tracking-widest uppercase">
+                © 2024 EC Digital Archivist
+            </div>
+</div>
+</footer>
+</body></html>

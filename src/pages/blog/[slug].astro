@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout title={post.data.title}>
+    <main class="pt-32 pb-20 max-w-3xl mx-auto px-6">
+        <article class="max-w-4xl mx-auto">
+            <header class="mb-16">
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="font-label text-xs tracking-widest uppercase text-outline dark:text-zinc-500">
+                        {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                    </span>
+                    <span class="w-1 h-1 bg-outline-variant dark:bg-zinc-700 rounded-full"></span>
+                    <span class="font-label text-xs tracking-widest uppercase text-outline dark:text-zinc-500">
+                        {post.data.author}
+                    </span>
+                </div>
+                
+                <h1 class="font-headline text-4xl md:text-6xl font-bold tracking-tighter text-on-surface dark:text-zinc-50 leading-tight mb-8">
+                    {post.data.title}
+                </h1>
+                
+                <div class="flex flex-wrap gap-2">
+                    {post.data.tags.map((tag) => (
+                        <span class="font-label text-[10px] tracking-widest uppercase px-2 py-1 bg-surface-variant dark:bg-zinc-800 text-on-surface-variant dark:text-zinc-400">
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+                
+                {post.data.heroImage && (
+                    <div class="w-full aspect-[21/9] bg-surface-container-low dark:bg-zinc-900/50 mt-12 mb-16 border border-outline-variant/15 dark:border-zinc-800/50 overflow-hidden">
+                        <img src={post.data.heroImage} alt={post.data.heroAlt || post.data.title} class="w-full h-full object-cover opacity-90" />
+                    </div>
+                )}
+            </header>
+            
+            <div class="prose prose-zinc dark:prose-invert max-w-none font-body text-on-surface-variant dark:text-zinc-400 leading-relaxed">
+                <Content />
+            </div>
+            
+            <div class="mt-24 pt-8 border-t border-outline-variant/20 dark:border-zinc-800 flex justify-between items-center">
+                <a href="/blog" class="font-label text-xs uppercase tracking-[0.2em] font-bold text-on-surface dark:text-zinc-100 hover:text-primary dark:hover:text-zinc-300 transition-colors flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                    Back to Archive
+                </a>
+            </div>
+        </article>
+    </main>
+</BaseLayout>

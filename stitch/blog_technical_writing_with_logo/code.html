@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Blog — EC Digital Archivist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+            font-size: 1.25rem;
+        }
+        body {
+            background-color: #f9f9f9;
+        }
+        /* Engineering Asymmetry: Offset columns */
+        @media (min-width: 1024px) {
+            .editorial-grid {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                gap: 4rem;
+            }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline-variant": "#adb3b4",
+                        "surface-tint": "#5f5e5e",
+                        "on-secondary-container": "#4f5253",
+                        "on-primary-fixed": "#403f3f",
+                        "primary-dim": "#535252",
+                        "surface-variant": "#dde4e5",
+                        "on-primary": "#faf7f6",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#9f403d",
+                        "inverse-on-surface": "#9c9d9d",
+                        "surface-bright": "#f9f9f9",
+                        "on-surface": "#2d3435",
+                        "on-primary-container": "#525151",
+                        "on-tertiary": "#f4faff",
+                        "primary-fixed": "#e5e2e1",
+                        "background": "#f9f9f9",
+                        "tertiary": "#486272",
+                        "on-secondary": "#f7f9fa",
+                        "surface-dim": "#d4dbdd",
+                        "on-surface-variant": "#5a6061",
+                        "primary-fixed-dim": "#d7d4d3",
+                        "surface-container-high": "#e4e9ea",
+                        "tertiary-fixed": "#d0ecff",
+                        "outline": "#757c7d",
+                        "secondary": "#5c6060",
+                        "on-tertiary-fixed-variant": "#486272",
+                        "tertiary-dim": "#3c5666",
+                        "tertiary-fixed-dim": "#c2def0",
+                        "on-error-container": "#752121",
+                        "inverse-surface": "#0c0f0f",
+                        "secondary-fixed-dim": "#d2d5d5",
+                        "primary": "#5f5e5e",
+                        "error-dim": "#4e0309",
+                        "tertiary-container": "#d0ecff",
+                        "on-secondary-fixed": "#3c4040",
+                        "on-background": "#2d3435",
+                        "inverse-primary": "#ffffff",
+                        "surface-container": "#ebeeef",
+                        "secondary-dim": "#505454",
+                        "on-primary-fixed-variant": "#5c5b5b",
+                        "secondary-container": "#e1e3e3",
+                        "primary-container": "#e5e2e1",
+                        "surface": "#f9f9f9",
+                        "surface-container-highest": "#dde4e5",
+                        "error-container": "#fe8983",
+                        "secondary-fixed": "#e1e3e3",
+                        "on-secondary-fixed-variant": "#595c5d",
+                        "on-error": "#fff7f6",
+                        "surface-container-low": "#f2f4f4",
+                        "on-tertiary-container": "#3e5868",
+                        "on-tertiary-fixed": "#2c4655"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-body text-on-surface bg-background antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-200/15 dark:border-zinc-800/15">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-16">
+<div class="flex items-center">
+<img alt="Lumina Archive Logo" class="h-8 w-auto invert dark:invert-0 grayscale transition-all duration-300" src="https://lh3.googleusercontent.com/aida/ADBb0ujtljFgZmNOQILoQzLtjgx_-Wi4-Pz1ymO6S0-Wx869YMNfTE9whJrOjXoeWnEBo_OzCWyVFAWLmm0D1ETOhOVSveDlU4xCH8ss7uYaYM2yEr7cbwXr1YrU7Q4n4dLdXMyrXpl5JPo6ZhUnnY9MVFciF9lsPhYr_JYmXsOHTRPikLnr4ZNrS5oTreKOsyGvmwQlM88Q7S3R_BW2LQmmL13qEtuuUsAPSCHwnDRfqCprIZ-M-HjDr-YXK6Jbk9uvdnUSvHjMaFriROA"/>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors font-headline text-sm tracking-tight font-medium" href="#">Home</a>
+<a class="text-zinc-900 dark:text-zinc-50 font-bold border-b-2 border-zinc-800 dark:border-zinc-200 pb-1 font-headline text-sm tracking-tight" href="#">Blog</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors font-headline text-sm tracking-tight font-medium" href="#">Projects</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors font-headline text-sm tracking-tight font-medium" href="#">Gallery</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:opacity-80 transition-opacity text-zinc-800 dark:text-zinc-200 scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+<!-- Hero Header -->
+<header class="mb-24">
+<div class="editorial-grid">
+<div>
+<span class="font-label text-xs tracking-widest uppercase text-on-surface-variant block mb-4">Engineering Log</span>
+<h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-on-surface leading-none">The Digital<br/>Archivist.</h1>
+</div>
+<div class="flex items-end">
+<p class="font-body text-lg text-on-surface-variant max-w-md leading-relaxed">
+                        Meticulous documentation of software architecture, high-performance systems, and technical design patterns.
+                    </p>
+</div>
+</div>
+</header>
+<!-- Search & Filter Row -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-16 pb-8 border-b border-outline-variant/15">
+<div class="flex flex-wrap gap-3">
+<button class="px-4 py-1.5 rounded-full bg-primary text-on-primary font-label text-[0.7rem] uppercase tracking-wider transition-all">All Articles</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label text-[0.7rem] uppercase tracking-wider hover:bg-surface-container-high transition-all">Rust</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label text-[0.7rem] uppercase tracking-wider hover:bg-surface-container-high transition-all">React</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label text-[0.7rem] uppercase tracking-wider hover:bg-surface-container-high transition-all">Architecture</button>
+</div>
+<div class="relative w-full md:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border-none border-b border-outline focus:ring-0 font-body text-sm pl-10 py-2" placeholder="Search archives..." type="text"/>
+</div>
+</div>
+<!-- Blog Index List -->
+<section class="space-y-16">
+<!-- Article 01 -->
+<article class="group">
+<div class="editorial-grid">
+<div class="flex flex-col justify-between">
+<div class="space-y-1">
+<time class="font-label text-xs tracking-widest text-outline uppercase">March 14, 2024</time>
+<p class="font-label text-[0.65rem] tracking-[0.15em] text-on-surface-variant/60 uppercase">8 min read</p>
+</div>
+<div class="hidden md:block mt-8 overflow-hidden rounded-sm grayscale transition-all duration-500 group-hover:grayscale-0 h-32 w-full">
+<img class="w-full h-full object-cover" data-alt="Close-up of high-tech circuit board with glowing traces and blue atmospheric lighting in a laboratory setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZrQjdDvc33bjqS9N6uQZJlTY07n3107KGgE_nN6uxSPmy1PQPIyM_ikywrpNK-jTDpoJCIh_-MdzG2UH77lKGMzKjdkSG0AcSR1NUGEY-lWOiTcyCU37nZQ1Ps67KPKn7qP6cpxMmddMA8yxVd3ExUn6-XbxnasjkFPg2U9kpw7U_tUzzIiIeBOxJXHiK5xNnIE4xlPmUAapgU43Z6prue__FSyg4otJtY5_6drRTbi0slarEAN0qMYiPIpzjTPS3PMW0LTF4_2YZ"/>
+</div>
+</div>
+<div class="space-y-6">
+<div class="flex gap-2">
+<span class="font-label text-[0.65rem] tracking-widest text-primary uppercase border border-outline-variant/30 px-2 py-0.5 rounded-sm">Architecture</span>
+</div>
+<h2 class="font-headline text-3xl md:text-4xl font-semibold tracking-tight text-on-surface leading-tight transition-all group-hover:text-primary-dim">
+<a href="#">The Anatomy of Scalable Distributed Systems in Rust</a>
+</h2>
+<p class="font-body text-on-surface-variant leading-relaxed text-base max-w-2xl">
+                            Exploring the boundaries of safety and performance. How we leveraged ownership and borrowing models to eliminate data races in our microservices mesh.
+                        </p>
+<a class="inline-flex items-center gap-2 font-label text-xs font-bold uppercase tracking-widest text-primary group-hover:gap-4 transition-all underline underline-offset-8" href="#">
+                            Read Archive
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="mt-16 h-[1px] w-full bg-outline-variant/15"></div>
+</article>
+<!-- Article 02 -->
+<article class="group">
+<div class="editorial-grid">
+<div class="flex flex-col justify-between">
+<div class="space-y-1">
+<time class="font-label text-xs tracking-widest text-outline uppercase">Feb 28, 2024</time>
+<p class="font-label text-[0.65rem] tracking-[0.15em] text-on-surface-variant/60 uppercase">12 min read</p>
+</div>
+<div class="hidden md:block mt-8 overflow-hidden rounded-sm grayscale transition-all duration-500 group-hover:grayscale-0 h-32 w-full">
+<img class="w-full h-full object-cover" data-alt="Conceptual 3D visualization of interconnected data nodes forming a clean geometric structure on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR8SVwDJ0WhhvfMBCW7gqhor9xRSa8rHHRGQ4bOvoau0U9Stp6bDAVjYXZbiM7P1RxG9T2GWFKQ2U9LvDvhmdPc20YnJeQUzBlBPWt1b6JuAdaABivaRcn2VGjdNmqm-4b8yKiCSjV_hNHvUZRPt70Ob1g1BZlG0gLRvl8mDJTb8uQvIpAWB60d6mkSj07YLYbu-TJ5dn0Iap1S81kqtxPqXRq-VFdyzVYLGQs1zIoZ4DT5wp2zszJoEmFuem4BT3Q2PDhJjDFz0Ef"/>
+</div>
+</div>
+<div class="space-y-6">
+<div class="flex gap-2">
+<span class="font-label text-[0.65rem] tracking-widest text-primary uppercase border border-outline-variant/30 px-2 py-0.5 rounded-sm">React</span>
+</div>
+<h2 class="font-headline text-3xl md:text-4xl font-semibold tracking-tight text-on-surface leading-tight transition-all group-hover:text-primary-dim">
+<a href="#">Declarative UI Patterns for Data-Heavy Dashboards</a>
+</h2>
+<p class="font-body text-on-surface-variant leading-relaxed text-base max-w-2xl">
+                            Beyond the basic hooks. An editorial approach to structuring React components for technical precision and high-performance rendering.
+                        </p>
+<a class="inline-flex items-center gap-2 font-label text-xs font-bold uppercase tracking-widest text-primary group-hover:gap-4 transition-all underline underline-offset-8" href="#">
+                            Read Archive
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="mt-16 h-[1px] w-full bg-outline-variant/15"></div>
+</article>
+<!-- Article 03 -->
+<article class="group">
+<div class="editorial-grid">
+<div class="flex flex-col justify-between">
+<div class="space-y-1">
+<time class="font-label text-xs tracking-widest text-outline uppercase">Jan 15, 2024</time>
+<p class="font-label text-[0.65rem] tracking-[0.15em] text-on-surface-variant/60 uppercase">5 min read</p>
+</div>
+<div class="hidden md:block mt-8 overflow-hidden rounded-sm grayscale transition-all duration-500 group-hover:grayscale-0 h-32 w-full">
+<img class="w-full h-full object-cover" data-alt="High-end laptop displaying complex source code in a minimalist desk environment with soft natural window light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnK93OvpU7ZYFy7SgkqmTrY2LSC-rFkPIEx-qxYCWBrzCCcpv89P8L8A6OKeU1JNhrQn54rvlGZ-qkorLSP41tii1pJ7BE4DBe90BYhr7vsDKWIkuMPWHGqtxxoLc7Pa-3dImFlbQf-5pJjF6gUdVR7XF51WGEUzob3GsAWrJCaRGkS_klBWHZS4EzOpf7-UbE2_Das6Zyh5MPndLtO_V4tgvk04FloVCZXUFeeH-95eXQvkWw5ETkNdvtL_4-8qtnrYynL-q-4urc"/>
+</div>
+</div>
+<div class="space-y-6">
+<div class="flex gap-2">
+<span class="font-label text-[0.65rem] tracking-widest text-primary uppercase border border-outline-variant/30 px-2 py-0.5 rounded-sm">DevOps</span>
+</div>
+<h2 class="font-headline text-3xl md:text-4xl font-semibold tracking-tight text-on-surface leading-tight transition-all group-hover:text-primary-dim">
+<a href="#">The Ethics of Engineering: A Design Manifesto</a>
+</h2>
+<p class="font-body text-on-surface-variant leading-relaxed text-base max-w-2xl">
+                            Why minimalism isn't just an aesthetic choice, but a functional requirement for long-term codebase sustainability and developer well-being.
+                        </p>
+<a class="inline-flex items-center gap-2 font-label text-xs font-bold uppercase tracking-widest text-primary group-hover:gap-4 transition-all underline underline-offset-8" href="#">
+                            Read Archive
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="mt-16 h-[1px] w-full bg-outline-variant/15"></div>
+</article>
+</section>
+<!-- Pagination -->
+<div class="mt-20 flex justify-between items-center">
+<button class="flex items-center gap-2 font-label text-xs uppercase tracking-[0.2em] text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="keyboard_arrow_left">keyboard_arrow_left</span>
+                Previous
+            </button>
+<div class="flex gap-4 font-label text-xs">
+<span class="text-on-surface font-bold">01</span>
+<span class="text-outline">02</span>
+<span class="text-outline">03</span>
+</div>
+<button class="flex items-center gap-2 font-label text-xs uppercase tracking-[0.2em] text-outline hover:text-on-surface transition-colors">
+                Next
+                <span class="material-symbols-outlined text-sm" data-icon="keyboard_arrow_right">keyboard_arrow_right</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 mt-20 bg-zinc-50 dark:bg-zinc-900/50">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 gap-6">
+<div class="text-lg font-black text-zinc-900 dark:text-zinc-100 font-headline uppercase tracking-tighter">
+                EC Digital Archivist
+            </div>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-xs tracking-widest uppercase text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all" href="#">GitHub</a>
+<a class="font-['Inter'] text-xs tracking-widest uppercase text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all" href="#">LinkedIn</a>
+<a class="font-['Inter'] text-xs tracking-widest uppercase text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all" href="#">Twitter</a>
+<a class="font-['Inter'] text-xs tracking-widest uppercase text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all" href="#">Email</a>
+</div>
+<div class="font-['Inter'] text-xs tracking-widest uppercase text-zinc-600 dark:text-zinc-400">
+                © 2024 EC Digital Archivist
+            </div>
+</div>
+</footer>
+</body></html>

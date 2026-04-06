@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+// Sort by publishDate descending
+const sortedProjects = projects.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<BaseLayout title="Projects Archive">
+    <main class="pt-32 pb-20 max-w-7xl mx-auto px-6">
+        <header class="editorial-grid mb-24">
+            <div class="col-span-12 lg:col-span-8">
+                <p class="font-label text-xs tracking-widest uppercase text-outline dark:text-zinc-500 mb-4">Work</p>
+                <h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-on-surface dark:text-zinc-50 leading-none mb-8">
+                    Selected <span class="text-outline-variant dark:text-zinc-600">Projects</span>.
+                </h1>
+                <p class="font-body text-lg text-on-surface-variant dark:text-zinc-400 max-w-xl leading-relaxed">
+                    Case studies in systems engineering, UI architecture, and creating tooling that empowers editorial design workflows.
+                </p>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {sortedProjects.map((project, index) => {
+                const isLargeMap = index % 3 === 0; // Create an asymmetrical bento grid look where every 3rd item is larger
+                return (
+                    <a href={`/projects/${project.slug}`} class={`group block ${isLargeMap ? 'md:col-span-2' : ''}`}>
+                        <div class={`relative overflow-hidden bg-surface-container-low dark:bg-zinc-900/50 border border-outline-variant/15 dark:border-zinc-800/50 mb-6 ${isLargeMap ? 'aspect-[16/9]' : 'aspect-square'}`}>
+                            <img alt={project.data.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90" src={project.data.thumbnail || "https://lh3.googleusercontent.com/aida-public/AB6AXuCH6sjVvxaH1Y9GyiNm87l8k9brwrmqfM70bQ6IgDYrbfMK0c6DrhwoGBYNkxx4It9_DYXKDLZAUvna-NMDIx5Au3dLPDU9qtnbiWX_12psisB5i2EKk-f2j6YCPRcwmXCUDPgcn9X_p4iHIiMvZF9CTYR1v-yD7-9abMSkxEZQmPIQWUx78IM21nUgMjFl-ZE1Ht_FxZUmKsZ5d210f40wSn_fuIOuAaBd3hdK8JRnlFA_5GhGpZ4uyG1t1K97HwVPtB8hmoWd7bwI"} />
+                            <div class="absolute inset-0 bg-gradient-to-t from-surface/40 dark:from-zinc-950/80 to-transparent"></div>
+                        </div>
+                        <div class={`flex flex-col ${isLargeMap ? 'md:flex-row justify-between items-start gap-4' : ''}`}>
+                            <div>
+                                <h3 class="font-headline text-2xl font-bold text-on-surface dark:text-zinc-100 mb-2 group-hover:text-primary dark:group-hover:text-zinc-300 transition-colors">{project.data.title}</h3>
+                                <p class="font-body text-sm text-on-surface-variant dark:text-zinc-400 line-clamp-2 drop-shadow-sm">{project.data.description}</p>
+                            </div>
+                            <div class={`flex flex-wrap gap-2 ${isLargeMap ? 'w-full md:w-auto justify-end' : 'mt-4'}`}>
+                                {project.data.stack.slice(0, 3).map((tech) => (
+                                    <span class="font-label text-[10px] tracking-widest uppercase px-2 py-1 border border-outline-variant/30 dark:border-zinc-700/50 text-on-surface-variant dark:text-zinc-400">
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </a>
+                )
+            })}
+        </div>
+
+        <section class="mt-32 pt-16 border-t border-outline-variant/10">
+            <div class="editorial-grid">
+                <div class="col-span-12 md:col-span-4">
+                    <h4 class="font-headline text-sm font-bold uppercase tracking-widest mb-6">Methodology</h4>
+                    <ul class="space-y-4 font-body text-xs text-on-surface-variant leading-relaxed">
+                        <li>01 / Performance-first development</li>
+                        <li>02 / Modular component architecture</li>
+                        <li>03 / Strict type safety &amp; validation</li>
+                        <li>04 / Accessibility-driven design</li>
+                    </ul>
+                </div>
+                <div class="col-span-12 md:col-span-8">
+                    <h4 class="font-headline text-sm font-bold uppercase tracking-widest mb-6">Current Focus</h4>
+                    <p class="font-body text-sm text-on-surface-variant leading-relaxed mb-8">
+                        Investigating the intersection of deterministic rendering and generative layout engines. Currently exploring how editorial design principles can be algorithmically applied to dynamic data sets without sacrificing aesthetic integrity.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+</BaseLayout>
