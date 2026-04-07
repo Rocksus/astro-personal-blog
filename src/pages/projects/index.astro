@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
-const projects = await getCollection('projects');
+const projects: CollectionEntry<'projects'>[] = await getCollection('projects');
 // Sort by publishDate descending
 const sortedProjects = projects.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 ---
@@ -36,7 +36,7 @@ const sortedProjects = projects.sort((a, b) => b.data.publishDate.valueOf() - a.
                                 <p class="font-body text-sm text-on-surface-variant dark:text-zinc-400 line-clamp-2 drop-shadow-sm">{project.data.description}</p>
                             </div>
                             <div class={`flex flex-wrap gap-2 ${isLargeMap ? 'w-full md:w-auto justify-end' : 'mt-4'}`}>
-                                {project.data.stack.slice(0, 3).map((tech) => (
+                                {project.data.stack.slice(0, 3).map((tech: string) => (
                                     <span class="font-label text-[10px] tracking-widest uppercase px-2 py-1 border border-outline-variant/30 dark:border-zinc-700/50 text-on-surface-variant dark:text-zinc-400">
                                         {tech}
                                     </span>

@@ -1,13 +1,17 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');
+  const projects: CollectionEntry<'projects'>[] = await getCollection('projects');
   return projects.map(project => ({
     params: { slug: project.slug },
     props: { project },
   }));
+}
+
+interface Props {
+  project: CollectionEntry<'projects'>;
 }
 
 const { project } = Astro.props;
@@ -36,7 +40,7 @@ const { Content } = await project.render();
             </p>
             
             <div class="flex flex-wrap gap-2 mt-8">
-                {project.data.stack.map(tech => (
+                {project.data.stack.map((tech: string) => (
                     <span class="font-label text-[10px] border border-outline-variant/30 dark:border-zinc-700 px-2 py-1 text-on-surface-variant dark:text-zinc-400">{tech}</span>
                 ))}
             </div>

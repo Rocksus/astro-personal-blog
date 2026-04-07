@@ -1,11 +1,13 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const photos = await getCollection("gallery");
-const sortedPhotos = photos.sort(
-  (a, b) => b.data.dateTaken.valueOf() - a.data.dateTaken.valueOf(),
-);
+const photos: CollectionEntry<"gallery">[] = await getCollection("gallery");
+const sortedPhotos = photos.sort((a, b) => {
+  const dateA = a.data.dateTaken?.valueOf() ?? 0;
+  const dateB = b.data.dateTaken?.valueOf() ?? 0;
+  return dateB - dateA;
+});
 ---
 
 <BaseLayout title="Photography Gallery">
