@@ -7,9 +7,4 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
     site: 'https://rayantonius.com',
     integrations: [mdx(), sitemap(), tailwind()],
-    vite: {
-      optimizeDeps: {
-        exclude: ['@astrojs/content']
-      }
-    }
 });

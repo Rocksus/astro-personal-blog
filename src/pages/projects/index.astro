@@ -25,7 +25,7 @@ const sortedProjects = projects.sort((a, b) => b.data.publishDate.valueOf() - a.
             {sortedProjects.map((project, index) => {
                 const isLargeMap = index % 3 === 0; // Create an asymmetrical bento grid look where every 3rd item is larger
                 return (
-                    <a href={`/projects/${project.slug}`} class={`group block ${isLargeMap ? 'md:col-span-2' : ''}`}>
+                    <a href={`/projects/${project.id}`} class={`group block ${isLargeMap ? 'md:col-span-2' : ''}`}>
                         <div class={`relative overflow-hidden bg-surface-container-low dark:bg-zinc-900/50 border border-outline-variant/15 dark:border-zinc-800/50 mb-6 ${isLargeMap ? 'aspect-[16/9]' : 'aspect-square'}`}>
                             <img alt={project.data.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90" src={project.data.thumbnail || "https://lh3.googleusercontent.com/aida-public/AB6AXuCH6sjVvxaH1Y9GyiNm87l8k9brwrmqfM70bQ6IgDYrbfMK0c6DrhwoGBYNkxx4It9_DYXKDLZAUvna-NMDIx5Au3dLPDU9qtnbiWX_12psisB5i2EKk-f2j6YCPRcwmXCUDPgcn9X_p4iHIiMvZF9CTYR1v-yD7-9abMSkxEZQmPIQWUx78IM21nUgMjFl-ZE1Ht_FxZUmKsZ5d210f40wSn_fuIOuAaBd3hdK8JRnlFA_5GhGpZ4uyG1t1K97HwVPtB8hmoWd7bwI"} />
                             <div class="absolute inset-0 bg-gradient-to-t from-surface/40 dark:from-zinc-950/80 to-transparent"></div>
